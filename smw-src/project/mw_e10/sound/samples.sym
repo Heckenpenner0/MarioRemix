@@ -1,0 +1,54 @@
+; this file was created with wlalink by ville helin <vhelin@iki.fi>.
+; wla symbolic information for "samples.bin".
+
+[labels]
+00:8004 BASE_START_0
+00:8054 BASE_END_0
+00:8100 BASE_START_1
+00:8100 SPC700_Sample00
+00:813f SPC700_Sample01
+00:817e SPC700_Sample02
+00:8283 SPC700_Sample03
+00:83c7 SPC700_Sample04
+00:8406 SPC700_Sample05
+00:863d SPC700_Sample06
+00:8aab SPC700_Sample07
+00:9111 SPC700_Sample08
+00:9150 SPC700_Sample09
+00:9d95 SPC700_Sample0A
+00:b013 SPC700_Sample0B
+00:b6af SPC700_Sample0C
+00:b6ee SPC700_Sample0D
+00:b9c7 SPC700_Sample0E
+00:c453 SPC700_Sample0F
+00:c6d2 SPC700_Sample10
+00:cfb7 SPC700_Sample11
+00:d521 SPC700_Sample12
+00:de7b SPC700_Sample13
+00:f020 BASE_END_1
+
+[definitions]
+00000050 _sizeof_BASE_START_0
+00000000 _sizeof_BASE_END_0
+00000000 _sizeof_BASE_START_1
+0000003f _sizeof_SPC700_Sample00
+0000003f _sizeof_SPC700_Sample01
+00000105 _sizeof_SPC700_Sample02
+00000144 _sizeof_SPC700_Sample03
+0000003f _sizeof_SPC700_Sample04
+00000237 _sizeof_SPC700_Sample05
+0000046e _sizeof_SPC700_Sample06
+00000666 _sizeof_SPC700_Sample07
+0000003f _sizeof_SPC700_Sample08
+00000c45 _sizeof_SPC700_Sample09
+0000127e _sizeof_SPC700_Sample0A
+0000069c _sizeof_SPC700_Sample0B
+0000003f _sizeof_SPC700_Sample0C
+000002d9 _sizeof_SPC700_Sample0D
+00000a8c _sizeof_SPC700_Sample0E
+0000027f _sizeof_SPC700_Sample0F
+000008e5 _sizeof_SPC700_Sample10
+0000056a _sizeof_SPC700_Sample11
+0000095a _sizeof_SPC700_Sample12
+000011a5 _sizeof_SPC700_Sample13
+00000018 _sizeof_BASE_END_1

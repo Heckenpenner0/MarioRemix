@@ -1,0 +1,66 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>crossover — download</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+ body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      max-width:46rem;margin:3rem auto;padding:0 1.25rem;color:#1a1a1a}
+ h1{font-size:1.7rem;margin:0 0 .25rem}
+ .sub{color:#666;margin:0 0 2rem}
+ a.dl{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+      padding:.85rem 1.1rem;border:1px solid #ddd;border-radius:10px;
+      text-decoration:none;color:inherit;margin:.5rem 0;background:#fafafa}
+ a.dl:hover{border-color:#888;background:#f2f2f2}
+ a.dl b{color:#06c}
+ a.dl span{color:#777;font-size:.85rem;white-space:nowrap}
+ code{background:#f0f0f0;padding:.1rem .35rem;border-radius:4px;font-size:.9em}
+ pre{background:#f6f6f6;padding:.9rem;border-radius:8px;overflow-x:auto;font-size:.85em}
+ h2{font-size:1.15rem;margin:2rem 0 .5rem}
+ .box{border-left:3px solid #e0b000;background:#fffbe8;padding:.7rem 1rem;border-radius:0 8px 8px 0}
+ table{border-collapse:collapse;width:100%;font-size:.92em}
+ td,th{border-bottom:1px solid #eee;padding:.4rem .6rem;text-align:left}
+</style>
+<h1>crossover</h1>
+<p class="sub">A Game&nbsp;Boy + SNES emulator with a shared hub world. Portable C99, SDL2.</p>
+
+<a class="dl" href="crossover.exe"><b>crossover.exe</b><span>174 KB · x86-64 · Windows</span></a>
+<a class="dl" href="SDL2.dll"><b>SDL2.dll</b><span>1.7 MB · required, same folder as the exe</span></a>
+<a class="dl" href="README.txt"><b>README.txt</b><span>controls, limits, build instructions</span></a>
+<a class="dl" href="crossover-source.tar.gz"><b>Source tarball</b><span>75 KB · full C99 tree</span></a>
+
+<h2>Run it</h2>
+<pre>crossover.exe --snes  game.smc    # SNES ROM (LoROM or HiROM)
+crossover.exe --gb    game.gb     # Game Boy ROM</pre>
+<p>Download <b>crossover.exe</b> and <b>SDL2.dll</b> into the same folder and
+double-click the exe. A console window opens for diagnostics.</p>
+
+<h2>Controller support</h2>
+<p>Any SDL2 game controller works and is hot-plugged. On a
+<b>DualSense Edge</b> (Sony <code>$054C:$0DF2</code>, USB and Bluetooth) the pad
+is named on connect and mapped like this:</p>
+<table>
+ <tr><th>SNES</th><th>DualSense Edge</th></tr>
+ <tr><td>A (right)</td><td>Circle</td></tr>
+ <tr><td>B (bottom)</td><td>Cross</td></tr>
+ <tr><td>X (top)</td><td>Triangle</td></tr>
+ <tr><td>Y (left)</td><td>Square</td></tr>
+ <tr><td>L / R</td><td>L1 / R1, or L2 / R2 past half-press</td></tr>
+ <tr><td>Select / Start</td><td>Share or mic button / Options or PS button</td></tr>
+ <tr><td>D-pad</td><td>D-pad, or either stick past the deadzone</td></tr>
+</table>
+<p>The Edge needs SDL2 ≥ 2.26.5; this build links 2.32.10.</p>
+
+<div class="box"><b>Status.</b> All 304 headless checks pass and Super Mario
+World boots to gameplay rendering (APU handshake, Mode 1 layers, sprites).
+The build has <b>not yet been play-tested interactively</b>; the SNES core has
+no ExHiROM and no enhancement chips. See
+<a href="README.txt">README.txt</a> for the full list.</div>
+
+<h2>Build it yourself</h2>
+<pre>x86_64-w64-mingw32-gcc -std=c99 -O2 -DUSE_SDL2 \
+  -I SDL2-2.32.10/x86_64-w64-mingw32/include -I core -I platform \
+  core/*.c platform/frontend.c platform/main_win.c -o crossover.exe \
+  -L SDL2-2.32.10/x86_64-w64-mingw32/lib \
+  -lmingw32 -lSDL2main -lSDL2 -lgdi32 -luser32 -limm32 -lole32 \
+  -lwinmm -lsetupapi -lhid -lcfgmgr32 -lversion -lshell32 -mwindows</pre>
+<p>Headless core, no SDL2 needed: <code>make test</code></p>

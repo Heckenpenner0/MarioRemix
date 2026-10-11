@@ -1,2 +1,14 @@
 remix/target/
-remix/shots/
+crossover/tests/test_65816
+crossover/tests/test_apu
+crossover/tests/test_cpu
+crossover/tests/test_frontend
+crossover/tests/test_gb
+crossover/tests/test_hub
+crossover/tests/test_ppu
+crossover/tests/test_snes
+crossover/tests/test_snes_ppu
+crossover/tests/test_spc700
+crossover/build/
+*.o
+*.sfc
