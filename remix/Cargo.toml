@@ -1,0 +1,8 @@
+[package]
+name = "worlds-united"
+version = "0.1.0"
+edition = "2021"
+description = "Super Mario: Worlds United - a playable SMW x SML2 crossover remix in pure Rust (zero dependencies)"
+
+[profile.release]
+opt-level = 3
